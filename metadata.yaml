@@ -1,0 +1,8 @@
+name: astrbot_plugin_nai
+display_name: NAI 生图
+desc: 基于 nai.sta1n.cn (Nai2API) 的 NovelAI 文生图插件。支持 /nai 直出、/nai2 LLM 提取参数、/nai3 LLM 创作提示词；Job 异步轮询出图。
+short_desc: Nai2API 文生图（/nai /nai2 /nai3）
+version: v1.0.8
+author: the-snowpear
+astrbot_version: ">=4.0.0"
+repo: https://github.com/the-snowpear/astrbot_plugin_nai

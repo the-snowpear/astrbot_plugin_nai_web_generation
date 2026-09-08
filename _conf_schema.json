@@ -1,0 +1,187 @@
+{
+  "api_key": {
+    "type": "string",
+    "default": "",
+    "description": "Nai2API 密钥",
+    "hint": "在 nai.sta1n.cn 获取，形如 STA1N-...",
+    "obvious_hint": true
+  },
+  "base_url": {
+    "type": "string",
+    "default": "https://nai.sta1n.cn",
+    "description": "Nai2API 服务地址"
+  },
+  "style_pack": {
+    "type": "string",
+    "default": "doc712",
+    "description": "画风预设包",
+    "hint": "doc712=文档7.12增强串；website=官网 app.js 当前串",
+    "options": ["doc712", "website"]
+  },
+  "default_style": {
+    "type": "string",
+    "default": "none",
+    "description": "默认画风 ID（未指定 --style 时使用）",
+    "hint": "none=不附加画风预设；可用 /nai 画风 查看当前包内 ID",
+    "options": [
+      "none",
+      "galgame",
+      "fresh",
+      "2.5d",
+      "comicDoujin",
+      "doujin",
+      "lolita25d",
+      "realistic_loli",
+      "animeOld"
+    ]
+  },
+  "default_size": {
+    "type": "string",
+    "default": "竖图",
+    "description": "默认尺寸",
+    "hint": "普通=1点，2K=15点，4K=25点",
+    "options": [
+      "竖图",
+      "横图",
+      "方图",
+      "2K竖图",
+      "2K横图",
+      "2K方图",
+      "4K竖图",
+      "4K横图",
+      "4K方图"
+    ]
+  },
+  "model": {
+    "type": "string",
+    "default": "nai-diffusion-4-5-full",
+    "description": "生图模型"
+  },
+  "steps": {
+    "type": "int",
+    "default": 28,
+    "description": "默认采样步数",
+    "slider": { "min": 1, "max": 28, "step": 1 }
+  },
+  "scale": {
+    "type": "float",
+    "default": 6,
+    "description": "默认 Scale（Prompt Guidance）",
+    "slider": { "min": 1, "max": 20, "step": 0.5 }
+  },
+  "cfg": {
+    "type": "float",
+    "default": 0,
+    "description": "默认 CFG Rescale（0-1）",
+    "slider": { "min": 0, "max": 1, "step": 0.05 }
+  },
+  "sampler": {
+    "type": "string",
+    "default": "k_dpmpp_2m_sde",
+    "description": "默认采样器",
+    "options": [
+      "k_dpmpp_2m_sde",
+      "k_dpmpp_2m",
+      "k_dpmpp_sde",
+      "k_dpmpp_2s_ancestral",
+      "k_euler_ancestral",
+      "k_euler"
+    ]
+  },
+  "noise_schedule": {
+    "type": "string",
+    "default": "karras",
+    "description": "噪声调度",
+    "options": ["karras", "native"]
+  },
+  "negative": {
+    "type": "text",
+    "default": "{{{{bad anatomy}}}},{bad feet},bad hands,{{{bad proportions}}},{blurry},cloned face,cropped,{{{deformed}}},{{{disfigured}}},error,{{{extra arms}}},{extra digit},{{{extra legs}}},extra limbs,{{extra limbs}},{fewer digits},{{{fused fingers}}},gross proportions,jpeg artifacts,{{{{long neck}}}},low quality,{malformed limbs},{{missing arms}},{missing fingers},{{missing legs}},mutated hands,{{{mutation}}},normal quality,poorly drawn face,poorly drawn hands,signature,text,{{too many fingers}},{{{ugly}}},username,watermark,worst quality",
+    "description": "默认负面提示词"
+  },
+  "allow_2k": {
+    "type": "bool",
+    "default": true,
+    "description": "允许 2K 尺寸（15 点）"
+  },
+  "allow_4k": {
+    "type": "bool",
+    "default": true,
+    "description": "允许 4K 尺寸（25 点）"
+  },
+  "poll_interval": {
+    "type": "float",
+    "default": 1.0,
+    "description": "Job 轮询间隔（秒）",
+    "slider": { "min": 0.5, "max": 5, "step": 0.5 }
+  },
+  "max_poll_time": {
+    "type": "int",
+    "default": 180,
+    "description": "Job 最大等待（秒）",
+    "slider": { "min": 30, "max": 600, "step": 10 }
+  },
+  "enable_llm_tool": {
+    "type": "bool",
+    "default": true,
+    "description": "允许主聊天 LLM 根据用户绘图意图自动调用 NAI 生图",
+    "hint": "工具成功时只发送图片；失败时由当前人格组织回复。每次调用会消耗生图点数"
+  },
+  "message_mode": {
+    "type": "string",
+    "default": "verbose",
+    "description": "生成消息模式",
+    "hint": "verbose=保留逐条状态消息；compact=仅开始提示、图片和可选完整详情",
+    "options": ["verbose", "compact"]
+  },
+  "compact_send_details": {
+    "type": "bool",
+    "default": true,
+    "description": "紧凑模式在图片后发送完整生成详情"
+  },
+  "show_progress": {
+    "type": "bool",
+    "default": true,
+    "description": "生图前发送「生成中」提示"
+  },
+  "show_params": {
+    "type": "bool",
+    "default": true,
+    "description": "/nai2 /nai3 出图前展示解析到的参数"
+  },
+  "nai3_show_prompt": {
+    "type": "bool",
+    "default": true,
+    "description": "/nai3 出图后附带 tag 摘要"
+  },
+  "llm_base_url": {
+    "type": "string",
+    "default": "",
+    "description": "独立 LLM Base URL（OpenAI 兼容）",
+    "hint": "例如 https://api.openai.com/v1 或中转地址；与 api_key、model 同时填写时优先使用"
+  },
+  "llm_api_key": {
+    "type": "string",
+    "default": "",
+    "description": "独立 LLM API Key"
+  },
+  "llm_model": {
+    "type": "string",
+    "default": "",
+    "description": "独立 LLM 模型名",
+    "hint": "例如 gpt-4o-mini、deepseek-chat 等"
+  },
+  "llm_provider": {
+    "type": "string",
+    "default": "",
+    "description": "AstrBot 内置 Provider（独立 LLM 未配齐时使用）",
+    "hint": "从已配置的聊天模型中选择",
+    "_special": "select_provider"
+  },
+  "llm_temperature": {
+    "type": "float",
+    "default": 0.2,
+    "description": "LLM 温度（/nai2 用此值；/nai3 会略调高）",
+    "slider": { "min": 0, "max": 1.5, "step": 0.05 }
+  }
+}
