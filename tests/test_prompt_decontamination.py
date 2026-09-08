@@ -75,15 +75,21 @@ try:
     from styles import get_artist  # noqa: E402
 except ImportError:
     try:
-        from astrbot_plugin_NAI_Web_Generation.llm_helper import LlmHelper  # noqa: E402
-        from astrbot_plugin_NAI_Web_Generation.main import GreedyStr, Main, _cmd_args  # noqa: E402
-        from astrbot_plugin_NAI_Web_Generation.nai_client import Nai2ApiError  # noqa: E402
-        from astrbot_plugin_NAI_Web_Generation.styles import get_artist  # noqa: E402
+        from astrbot_plugin_nai_web_generation.llm_helper import LlmHelper  # noqa: E402
+        from astrbot_plugin_nai_web_generation.main import GreedyStr, Main, _cmd_args  # noqa: E402
+        from astrbot_plugin_nai_web_generation.nai_client import Nai2ApiError  # noqa: E402
+        from astrbot_plugin_nai_web_generation.styles import get_artist  # noqa: E402
     except ImportError:
-        from astrbot_plugin_nai.llm_helper import LlmHelper  # noqa: E402
-        from astrbot_plugin_nai.main import GreedyStr, Main, _cmd_args  # noqa: E402
-        from astrbot_plugin_nai.nai_client import Nai2ApiError  # noqa: E402
-        from astrbot_plugin_nai.styles import get_artist  # noqa: E402
+        try:
+            from astrbot_plugin_NAI_Web_Generation.llm_helper import LlmHelper  # noqa: E402
+            from astrbot_plugin_NAI_Web_Generation.main import GreedyStr, Main, _cmd_args  # noqa: E402
+            from astrbot_plugin_NAI_Web_Generation.nai_client import Nai2ApiError  # noqa: E402
+            from astrbot_plugin_NAI_Web_Generation.styles import get_artist  # noqa: E402
+        except ImportError:
+            from astrbot_plugin_nai.llm_helper import LlmHelper  # noqa: E402
+            from astrbot_plugin_nai.main import GreedyStr, Main, _cmd_args  # noqa: E402
+            from astrbot_plugin_nai.nai_client import Nai2ApiError  # noqa: E402
+            from astrbot_plugin_nai.styles import get_artist  # noqa: E402
 
 
 class StyleIsolationTests(unittest.TestCase):
@@ -160,6 +166,8 @@ class CommandArgumentTests(unittest.TestCase):
 class Nai3PromptTests(unittest.TestCase):
     def test_no_concrete_character_example_remains(self) -> None:
         prompt_path = ROOT / "prompts" / "nai3_system.txt"
+        if not prompt_path.exists():
+            prompt_path = ROOT / "astrbot_plugin_nai_web_generation" / "prompts" / "nai3_system.txt"
         if not prompt_path.exists():
             prompt_path = ROOT / "astrbot_plugin_NAI_Web_Generation" / "prompts" / "nai3_system.txt"
         if not prompt_path.exists():
@@ -431,6 +439,8 @@ class LlmImageToolTests(unittest.IsolatedAsyncioTestCase):
             self.assertIn(f"{field}(string):", doc)
 
         schema_path = ROOT / "_conf_schema.json"
+        if not schema_path.exists():
+            schema_path = ROOT / "astrbot_plugin_nai_web_generation" / "_conf_schema.json"
         if not schema_path.exists():
             schema_path = ROOT / "astrbot_plugin_NAI_Web_Generation" / "_conf_schema.json"
         if not schema_path.exists():

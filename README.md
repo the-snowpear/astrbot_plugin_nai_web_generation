@@ -2,7 +2,7 @@
   <img src="./logo.png" width="180" height="180" alt="AstrBot NAI Plugin Logo" style="border-radius: 20%; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
 </p>
 
-<h1 align="center">astrbot_plugin_NAI_Web_Generation</h1>
+<h1 align="center">astrbot_plugin_nai_web_generation</h1>
 
 <p align="center">
   <strong>基于 Nai2API 网关的高性能 NovelAI 文生图 AstrBot 插件</strong>
@@ -19,7 +19,7 @@
 
 ## 📖 简介
 
-`astrbot_plugin_NAI_Web_Generation` 是专为 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 打造的 NovelAI 文生图插件。通过 [nai.sta1n.cn](https://nai.sta1n.cn)（Nai2API）提供的异步生图网关，支持多种指令模式、内置双套精选画风预设包、LLM 参数智能提取与创作扩写，并深度集成大模型工具调用（Function Calling）能力。
+`astrbot_plugin_nai_web_generation` 是专为 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 打造的 NovelAI 文生图插件。通过 [nai.sta1n.cn](https://nai.sta1n.cn)（Nai2API）提供的异步生图网关，支持多种指令模式、内置双套精选画风预设包、LLM 参数智能提取与创作扩写，并深度集成大模型工具调用（Function Calling）能力。
 
 ---
 
@@ -47,7 +47,7 @@
 ### 方式一：WebUI 插件市场安装（推荐）
 
 1. 进入 AstrBot 管理面板，点击左侧导航栏的 **插件管理**。
-2. 切换至 **插件市场**，搜索 `astrbot_plugin_NAI_Web_Generation` 或 `NAI 生图`。
+2. 切换至 **插件市场**，搜索 `astrbot_plugin_nai_web_generation` 或 `NAI 生图`。
 3. 点击 **安装**，安装完成后在插件列表中点击 **启用** 并 **重载**。
 
 ### 方式二：Git Clone 安装
@@ -56,7 +56,7 @@
 
 ```bash
 cd AstrBot/data/plugins
-git clone https://github.com/the-snowpear/astrbot_plugin_NAI_Web_Generation.git
+git clone https://github.com/the-snowpear/astrbot_plugin_nai_web_generation.git
 ```
 
 重启 AstrBot 或在 WebUI 重新加载插件。
@@ -164,7 +164,7 @@ git clone https://github.com/the-snowpear/astrbot_plugin_NAI_Web_Generation.git
 本项目严格遵循 AstrBot 官方单层插件组织规范：
 
 ```text
-astrbot_plugin_NAI_Web_Generation/
+astrbot_plugin_nai_web_generation/
 ├── .gitignore              # Git 忽略配置
 ├── LICENSE                 # MIT 开源许可证
 ├── README.md               # 插件使用文档
@@ -199,7 +199,7 @@ python -m unittest discover tests
 
 ## 🤝 贡献与反馈
 
-- 如遇问题或功能建议，欢迎提交 [GitHub Issues](https://github.com/the-snowpear/astrbot_plugin_NAI_Web_Generation/issues)。
+- 如遇问题或功能建议，欢迎提交 [GitHub Issues](https://github.com/the-snowpear/astrbot_plugin_nai_web_generation/issues)。
 - 代码贡献请参考 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 ---
