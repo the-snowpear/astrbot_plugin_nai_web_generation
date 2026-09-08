@@ -1,6 +1,6 @@
 # 贡献指南 (Contributing Guide)
 
-感谢您关注并考虑为 `astrbot_plugin_nai` 做出贡献！无论是提交 Issue、建议新功能还是提交 Pull Request，我们都非常欢迎。
+感谢您关注并考虑为 `astrbot_plugin_NAI_Web_Generation` 做出贡献！无论是提交 Issue、建议新功能还是提交 Pull Request，我们都非常欢迎。
 
 ---
 
@@ -23,8 +23,8 @@
 
 1. **Fork 并 Clone 仓库**：
    ```bash
-   git clone https://github.com/the-snowpear/astrbot_plugin_nai.git
-   cd astrbot_plugin_nai
+   git clone https://github.com/the-snowpear/astrbot_plugin_NAI_Web_Generation.git
+   cd astrbot_plugin_NAI_Web_Generation
    ```
 
 2. **安装依赖**：
